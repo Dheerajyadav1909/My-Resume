@@ -1,0 +1,232 @@
+/* General Styles */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    color: #00FF00;
+    background-color: #0d0d0d;
+    background-image: radial-gradient(circle at center, #1a1a1a, #0d0d0d);
+  }
+  
+  header {
+    background: #1a1a1a;
+    color: #00FF00;
+    padding: 30px 0;
+    text-align: center;
+    border-bottom: 2px solid #00FF00;
+  }
+  
+  header h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-shadow: 0 0 10px #00FF00;
+  }
+  
+  header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  nav {
+    background: #0a0a0a;
+    padding: 15px 0;
+    border-bottom: 1px solid #00FF00;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin: 0 20px;
+  }
+  
+  nav ul li a {
+    color: #00FF00;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: #FF0000;
+  }
+  
+  #hero {
+    text-align: center;
+    padding: 20px 0;
+    background: #1a1a1a;
+  }
+  
+  .hero-image {
+    width: 60%;
+    max-width: 500px;
+    border: 2px solid #00FF00;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00FF00;
+  }
+  
+  .section {
+    padding: 40px 20px;
+    background: #1e1e1e;
+    margin: 20px 0;
+    border-left: 5px solid #00FF00;
+    box-shadow: 0 0 10px #00FF00;
+  }
+  
+  .section h2 {
+    text-align: center;
+    color: #00FF00;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #00FF00;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    padding: 8px 0;
+    position: relative;
+  }
+  
+  ul li::before {
+    content: '■';
+    color: #00FF00;
+    position: absolute;
+    left: -20px;
+  }
+  
+/* General Styles for Charts */
+canvas {
+    background: #0d0d0d;
+    border: 1px solid #00FF00;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #00FF00;
+    width: 100%; /* Take full width of the parent container */
+    height: 250px; /* Standardized chart height for consistent appearance */
+  }
+  
+  /* Grid Layout for Charts */
+.charts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three charts per row */
+    gap: 20px; /* Space between the charts */
+    justify-content: center; /* Center align the grid horizontally */
+    margin: 0 auto; /* Additional centering of the grid container */
+    max-width: 350px; /* Restrict grid width for a balanced layout */
+  }
+  
+  /* CSS for Canvas */
+canvas {
+    display: block;
+    max-width: 350px; /* Restrict grid width */
+    aspect-ratio: 14 / 10; /* Maintain width-to-height ratio */
+    border: 1px solid #00FF00;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #00FF00;
+  }
+  
+  
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .charts {
+      grid-template-columns: repeat(2, 1fr); /* Two charts per row on medium screens */
+    }
+    
+    canvas {
+      height: 220px; /* Adjust chart height for medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .charts {
+      grid-template-columns: 1fr; /* One chart per row on small screens */
+    }
+    
+    canvas {
+      height: 200px; /* Adjust chart height for smaller screens */
+    }
+  }
+
+  footer {
+    background: #1a1a1a;
+    color: #00FF00;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 2px solid #00FF00;
+  }
+  
+  form {
+    background: #0d0d0d;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #00FF00;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #00FF00;
+  }
+  
+  form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    background: #1a1a1a;
+    border: 1px solid #00FF00;
+    border-radius: 4px;
+    color: #00FF00;
+  }
+  
+  form input::placeholder, form textarea::placeholder {
+    color: #4caf50;
+  }
+  
+  form button {
+    background: #00FF00;
+    color: #0d0d0d;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  
+  form button:hover {
+    background: #4caf50;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .charts {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .charts {
+      grid-template-columns: 1fr;
+    }
+  
+    .hero-image {
+      width: 80%;
+    }
+  }
+  
