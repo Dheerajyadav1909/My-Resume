@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Accident Alert System</title>
+    <link rel="stylesheet" href="accident.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Automatic Accident Alert System</h1>
+        <p>Revolutionizing accident detection with IoT and data visualization</p>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>About the System</h2>
+            <p>
+                Our system integrates IoT components such as Arduino, GPS, GSM, accelerometers, and temperature sensors
+                to monitor real-time accident data, ensuring prompt assistance and insightful analytics.
+            </p>
+        </section>
+        
+        <section class="hardware">
+            <h2>Hardware Components</h2>
+            <ul>
+                <li><b>Arduino:</b> Acts as the central controller for processing sensor data.</li>
+                <li><b>GPS Module:</b> Provides the exact location of the accident in real-time.</li>
+                <li><b>GSM Module:</b> Sends automated alerts via SMS to emergency services and contacts.</li>
+                <li><b>Accelerometer:</b> Detects sudden impact or abnormal motion patterns.</li>
+                <li><b>Temperature Sensor:</b> Monitors temperature fluctuations in case of fire or collision.</li>
+                <li><b>Heartbeat Sensor:</b> Tracks the victim's pulse to assess their condition.</li>
+                <li><b>Camera Module:</b> Captures images of the scene for further analysis.</li>
+            </ul>
+        </section>
+
+        <section class="visualization">
+            <h2>Accident Data Visualizations</h2>
+            <div class="visualization-container">
+                <!-- Visualization 1 -->
+                <div class="visual">
+                    <h3>Total Accidents in India (Year by Year)</h3>
+                    <canvas id="totalAccidentsChart"></canvas>
+                </div>
+                
+                <!-- Visualization 2 -->
+                <div class="visual">
+                    <h3>Accidents Every Minute</h3>
+                    <canvas id="accidentsPerMinuteChart"></canvas>
+                </div>
+                
+                <!-- Visualization 3 -->
+                <div class="visual">
+                    <h3>Mountain Region Accidents</h3>
+                    <canvas id="mountainAccidentsChart"></canvas>
+                </div>
+                
+                <!-- Visualization 4 -->
+                <div class="visual">
+                    <h3>City vs. Rural Accident Comparison</h3>
+                    <canvas id="cityRuralComparisonChart"></canvas>
+                </div>
+                
+                <!-- Visualization 5 -->
+                <div class="visual">
+                    <h3>Common Causes of Accidents</h3>
+                    <canvas id="commonCausesChart"></canvas>
+                </div>
+                
+                <!-- Visualization 6 -->
+                <div class="visual">
+                    <h3>Monthly Accident Trends</h3>
+                    <canvas id="monthlyTrendsChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section class="use-cases">
+            <h2>Use Cases</h2>
+            <ul>
+                <li>Emergency response teams receive instant notifications with location and victim details.</li>
+                <li>Authorities analyze data to identify high-risk areas and implement preventive measures.</li>
+                <li>Insurance companies use accident records for claim verification and analysis.</li>
+            </ul>
+        </section>
+
+        <section class="future-scope">
+            <h2>Future Scope</h2>
+            <p>
+                Integration with AI to predict accident-prone scenarios, enhanced IoT networks for faster response, 
+                and deeper data analytics to reduce accidents globally.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Automatic Accident Alert System</p>
+    </footer>
+    <script src="accident.js"></script>
+</body>
+</html>
