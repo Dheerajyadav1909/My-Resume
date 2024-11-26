@@ -1,0 +1,79 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #333;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #00bcd4;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+main {
+    padding: 2rem;
+}
+
+/* Section Styling */
+section {
+    margin: 2rem 0;
+}
+
+h2 {
+    color: #00bcd4;
+    border-bottom: 2px solid #00bcd4;
+    padding-bottom: 0.5rem;
+}
+
+/* Visualization Styling */
+.visualization-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px; /* Reduced spacing between visuals */
+}
+
+.visual {
+    flex: 1 1 calc(30% - 15px); /* Smaller size, adjusted to 30% */
+    background: #292929;
+    padding: 10px; /* Reduced padding */
+    border-radius: 8px; /* Slightly smaller border radius */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.visual h3 {
+    margin-bottom: 10px; /* Reduced margin */
+    font-size: 1rem; /* Slightly smaller font size */
+    color: #00bcd4;
+}
+
+.visual canvas {
+    max-width: 100%;
+    max-height: 200px; /* Limit the height of the canvas */
+    height: auto;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    text-align: center;
+    padding: 1rem 0;
+    color: #aaa;
+    margin-top: 2rem;
+}
