@@ -164,4 +164,18 @@ const chartsData = [
   
   // Initialize charts on page load
   window.onload = renderCharts;
+
+emailjs.send("your_service_id", "your_new_template_id", {
+    name: name,
+    email: email,
+    message: message,
+})
+.then(() => {
+    document.getElementById("responseMessage").textContent = "Your message has been sent successfully!";
+})
+.catch((error) => {
+    console.error("Error sending email:", error);
+    document.getElementById("responseMessage").textContent = "There was an error sending your message. Please try again.";
+});
+
   
