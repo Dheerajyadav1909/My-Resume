@@ -7,14 +7,14 @@ let message = document.getElementById("message");
 })();
 
 let templateParams = {
-  to_name : "Simple Coding Tutorials",
+  to_name : "Duck Hunter",
   from_name: name.value,
   from_email:email.value,
   message:message.value
 }
 
 function submitMessage() {
-  templateParams.to_name = "Simple Coding Tutorials";
+  templateParams.to_name = "Duck Hunter";
   templateParams.from_name = name.value;
   templateParams.from_email = email.value;
   templateParams.message = message.value;
