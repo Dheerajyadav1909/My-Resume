@@ -109,8 +109,9 @@ input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
 .error {
     background-color: #dc3545;
 }
-/* Back to Home Button Styling */
-#back-to-home {
+
+/* Go back to home button styling */
+button {
     width: 100%;
     padding: 15px;
     background-color: #FF00FF;
@@ -124,10 +125,7 @@ input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
     margin-top: 15px;
 }
 
-/* Hover Effect for Back to Home Button */
-#back-to-home:hover {
+button:hover {
     background-color: #33FF00;
     box-shadow: 0 0 15px rgba(0, 255, 0, 1);
 }
-
-/* Rest of the existing CSS remains the same */
