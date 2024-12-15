@@ -3,7 +3,7 @@ let email = document.getElementById("email");
 let message = document.getElementById("message");
 
 (function() {
-  emailjs.init("5SbHnDjNb9pK4sU1p");
+  emailjs.init("j5vu2qRA6sVjadX3w");
 })();
 
 let templateParams = {
@@ -18,7 +18,7 @@ function submitMessage() {
   templateParams.from_name = name.value;
   templateParams.from_email = email.value;
   templateParams.message = message.value;
-  emailjs.send("service_gf1iej8","template_4wummlb",templateParams)
+  emailjs.send("service_i655qdh","template_u66ell8",templateParams)
   .then(function(){
     showAlert("Message sent successfully!");
     name.value="";
