@@ -165,17 +165,34 @@ const chartsData = [
   // Initialize charts on page load
   window.onload = renderCharts;
 
-emailjs.send("service_i655qdh", "template_u66ell8", {
-    name: name,
-    email: email,
-    message: message,
-})
-.then(() => {
-    document.getElementById("responseMessage").textContent = "Your message has been sent successfully!";
-})
-.catch((error) => {
-    console.error("Error sending email:", error);
-    document.getElementById("responseMessage").textContent = "There was an error sending your message. Please try again.";
-});
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Initialize EmailJS
+    emailjs.init("j5vu2qRA6sVjadX3w"); // Replace with your EmailJS Public Key
+
+    // Attach event listener to the contact form
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Get form data
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        // Send email via EmailJS
+        emailjs.send("your_service_id", "your_template_id", {
+            name: name,
+            email: email,
+            message: message,
+        })
+        .then(() => {
+            document.getElementById("responseMessage").textContent = "Your message has been sent successfully!";
+        })
+        .catch((error) => {
+            console.error("Error sending email:", error);
+            document.getElementById("responseMessage").textContent = "There was an error sending your message. Please try again.";
+        });
+    });
+});
   
