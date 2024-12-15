@@ -166,7 +166,26 @@ const chartsData = [
   window.onload = renderCharts;
 
 
+const btn = document.getElementById('button');
 
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_u66ell8';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Sent!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+});
 document.addEventListener("DOMContentLoaded", () => {
     // Initialize EmailJS
     emailjs.init("j5vu2qRA6sVjadX3w"); // Replace with your EmailJS Public Key
