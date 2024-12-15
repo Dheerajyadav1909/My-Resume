@@ -5,8 +5,181 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="stylesheet" href="styles2.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <style>
+        /* General body styling */
+        body {
+            background-color: #121212;
+            font-family: 'Courier New', Courier, monospace;
+            color: #33FF00; /* Neon green color for text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Contact form container */
+        #contact-form {
+            background-color: #1c1c1c;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Form heading */
+        #contact-form h1 {
+            text-align: center;
+            font-size: 32px;
+            color: #33FF00;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            animation: glitch 1s infinite;
+        }
+
+        /* Glitch effect */
+        @keyframes glitch {
+            0% {
+                text-shadow: 2px 2px 5px rgba(0, 255, 0, 0.8), -2px -2px 5px rgba(255, 0, 0, 0.8);
+            }
+            20% {
+                text-shadow: -2px -2px 5px rgba(0, 255, 0, 0.8), 2px 2px 5px rgba(255, 0, 0, 0.8);
+            }
+            40% {
+                text-shadow: 2px 2px 5px rgba(0, 255, 0, 0.8), -2px -2px 5px rgba(255, 0, 0, 0.8);
+            }
+            60% {
+                text-shadow: -2px -2px 5px rgba(0, 255, 0, 0.8), 2px 2px 5px rgba(255, 0, 0, 0.8);
+            }
+            100% {
+                text-shadow: 2px 2px 5px rgba(0, 255, 0, 0.8), -2px -2px 5px rgba(255, 0, 0, 0.8);
+            }
+        }
+
+        /* Input and textarea styling */
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #33FF00;
+            background-color: #121212;
+            color: #33FF00;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+            outline: none;
+            border: 2px solid #FF00FF;
+        }
+
+        /* Submit button styling */
+        #submit {
+            width: 100%;
+            padding: 15px;
+            background-color: #33FF00;
+            color: black;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+            transition: 0.3s;
+        }
+
+        #submit:hover {
+            background-color: #FF00FF;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 1);
+        }
+
+        /* Alert message styling */
+        #alert {
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 4px;
+            display: none;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .success {
+            background-color: #28a745;
+        }
+
+        .error {
+            background-color: #dc3545;
+        }
+
+        /* Go back to home button styling */
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #FF00FF;
+            color: #000000;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+            transition: 0.3s;
+            margin-top: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Glowing effect on hover */
+        button:hover {
+            background-color: #33FF00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 1);
+            color: #121212;
+        }
+
+        /* Glitch effect for the text */
+        button:after {
+            content: "Back to Home";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(45deg, #00FF00, #FF00FF, #33FF00);
+            background-size: 400%;
+            color: #121212;
+            z-index: -1;
+            animation: glitch 1s infinite linear;
+        }
+
+        @keyframes glitch {
+            0% {
+                left: -10px;
+                text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.8), -2px -2px 5px rgba(0, 255, 0, 0.8);
+            }
+            25% {
+                left: 5px;
+                text-shadow: -2px -2px 5px rgba(0, 255, 0, 0.8), 2px 2px 5px rgba(255, 0, 0, 0.8);
+            }
+            50% {
+                left: -5px;
+                text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.8), -2px -2px 5px rgba(0, 255, 0, 0.8);
+            }
+            75% {
+                left: 10px;
+                text-shadow: -2px -2px 5px rgba(0, 255, 0, 0.8), 2px 2px 5px rgba(255, 0, 0, 0.8);
+            }
+            100% {
+                left: -10px;
+                text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.8), -2px -2px 5px rgba(0, 255, 0, 0.8);
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="contact-form">
@@ -16,7 +189,7 @@
         <textarea id="message" name="message" placeholder="Message"></textarea>
         <input type="submit" id="submit" value="Submit" onclick="submitMessage()">
         <div id="alert"></div>
-        
+
         <!-- Go Back Button -->
         <button onclick="window.location.href='duck.html'">Go Back to Home</button>
     </div>
