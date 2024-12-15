@@ -1,82 +1,88 @@
-let name = document.getElementById("name");
-let email = document.getElementById("email");
-let message = document.getElementById("message");
-
-// Initialize EmailJS with your public key
+// Initialize EmailJS
 (function() {
-  emailjs.init("j5vu2qRA6sVjadX3w");
+    emailjs.init("j5vu2qRA6sVjadX3w"); // Replace with your EmailJS public key
 })();
 
-// Template parameters for the email
-let templateParams = {
-  to_name: "Duck Hunter",
-  from_name: name.value,
-  from_email: email.value,
-  message: message.value
-};
+// Function to validate form fields
+function validateForm(name, email, message) {
+    if (name.trim() === "" || email.trim() === "" || message.trim() === "") {
+        showAlert("All fields are required.", "error");
+        return false;
+    }
 
-// Function to validate form fields before submission
-function validateForm() {
-  const nameValue = name.value.trim();
-  const emailValue = email.value.trim();
-  const messageValue = message.value.trim();
-
-  // Check if any fields are empty
-  if (nameValue === "" || emailValue === "" || messageValue === "") {
-    showAlert("All fields are required.", "error");
-    return false;
-  }
-
-  // Validate email format
-  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  if (!emailPattern.test(emailValue)) {
-    showAlert("Please enter a valid email address.", "error");
-    return false;
-  }
-
-  return true;
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailPattern.test(email.trim())) {
+        showAlert("Please enter a valid email address.", "error");
+        return false;
+    }
+    return true;
 }
 
-// Function to submit the form if validation passes
+// Function to display alert messages
+function showAlert(message, type) {
+    const alert = document.getElementById("alert");
+    alert.style.display = "block";
+    alert.textContent = message;
+
+    alert.style.backgroundColor = type === "success" ? "green" : "red";
+    alert.style.color = "white";
+
+    setTimeout(() => {
+        alert.style.display = "none";
+    }, 3000);
+}
+
+// Function to submit the form
 function submitMessage() {
-  if (!validateForm()) {
-    return;
-  }
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
 
-  // Update template parameters with the user input
-  templateParams.from_name = name.value;
-  templateParams.from_email = email.value;
-  templateParams.message = message.value;
+    if (!validateForm(name, email, message)) {
+        return;
+    }
 
-  // Send the message via EmailJS
-  emailjs.send("service_i655qdh", "template_u66ell8", templateParams)
-    .then(function(response) {
-      showAlert("Message sent successfully!", "success");
-      // Clear form fields after successful submission
-      name.value = "";
-      email.value = "";
-      message.value = "";
+    // Prepare email template parameters
+    const templateParams = {
+        from_name: name,
+        from_email: email,
+        message: message
+    };
+
+    // Send email via EmailJS
+    emailjs.send("service_i655qdh", "template_u66ell8", templateParams)
+        .then(() => {
+            showAlert("Message sent successfully!", "success");
+            saveToExcel({ name, email, message });
+            clearForm();
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+            showAlert("Failed to send message. Please try again.", "error");
+        });
+}
+
+// Function to send data to the server for Excel storage
+function saveToExcel(data) {
+    fetch("https://script.google.com/macros/s/AKfycbwxsFa8Uyhy_u3HT0wLBNYc3BHfV4Q6W2zEOkfFNhVWYmNZ5B4jNnuvaXAtEHt6OTI/exec", { // Replace with your backend URL
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
     })
-    .catch(function(error) {
-      showAlert("Failed to send message. Please try again.", "error");
+    .then(response => response.json())
+    .then(result => {
+        console.log("Saved to Excel:", result);
+    })
+    .catch(error => {
+        console.error("Failed to save data:", error);
     });
 }
 
-// Function to show alert messages
-function showAlert(message, type) {
-  const alert = document.getElementById("alert");
-  alert.innerHTML = message;
-  alert.style.display = "flex";
-  
-  // Set alert color based on message type
-  if (type === "success") {
-    alert.style.backgroundColor = "green";
-  } else {
-    alert.style.backgroundColor = "red";
-  }
-  
-  // Hide alert after 3 seconds
-  setTimeout(function() {
-    alert.style.display = "none";
-  }, 3000);
+// Function to clear form fields
+function clearForm() {
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
 }
