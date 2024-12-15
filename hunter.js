@@ -1,148 +1,198 @@
-// Data for the charts
-const chartsData = [
-    {
-      id: 'chart1',
-      type: 'bar',
-      data: {
-        labels: ['2020', '2021', '2022', '2023'],
-        datasets: [{
-          label: 'Systems Hacked',
-          data: [100, 250, 400, 600],
-          backgroundColor: 'rgba(0, 255, 0, 0.7)',
-          borderColor: 'rgba(0, 255, 0, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: { beginAtZero: true, ticks: { color: '#00FF00' } },
-          x: { ticks: { color: '#00FF00' } }
-        },
-        plugins: {
-          legend: { labels: { color: '#00FF00' } }
-        }
-      }
-    },
-    {
-      id: 'chart2',
-      type: 'line',
-      data: {
-        labels: ['2020', '2021', '2022', '2023'],
-        datasets: [{
-          label: 'Data Loss (GB)',
-          data: [10, 50, 150, 300],
-          borderColor: 'rgba(54, 162, 235, 1)',
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
-          fill: false,
-          tension: 0.1
-        }]
-      },
-      options: {
-        scales: {
-          y: { beginAtZero: true, ticks: { color: '#00FF00' } },
-          x: { ticks: { color: '#00FF00' } }
-        },
-        plugins: {
-          legend: { labels: { color: '#00FF00' } }
-        }
-      }
-    },
-    {
-      id: 'chart3',
-      type: 'pie',
-      data: {
-        labels: ['Malware', 'Keyloggers', 'Phishing'],
-        datasets: [{
-          label: 'Attack Distribution',
-          data: [40, 30, 30],
-          backgroundColor: ['#f39c12', '#e74c3c', '#8e44ad'],
-          borderColor: '#0d0d0d',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        plugins: {
-          legend: { labels: { color: '#00FF00' } }
-        }
-      }
-    },
-    {
-      id: 'chart4',
-      type: 'doughnut',
-      data: {
-        labels: ['Small Enterprises', 'Medium Enterprises', 'Corporates'],
-        datasets: [{
-          label: 'Victim Types',
-          data: [20, 50, 30],
-          backgroundColor: ['#1abc9c', '#3498db', '#e67e22'],
-          borderColor: '#0d0d0d',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        plugins: {
-          legend: { labels: { color: '#00FF00' } }
-        }
-      }
-    },
-    {
-      id: 'chart5',
-      type: 'radar',
-      data: {
-        labels: ['Speed', 'Stealth', 'Ease of Use', 'Effectiveness'],
-        datasets: [{
-          label: 'Rubber Ducky Features',
-          data: [80, 90, 75, 85],
-          backgroundColor: 'rgba(155, 89, 182, 0.2)',
-          borderColor: 'rgba(155, 89, 182, 1)',
-          pointBackgroundColor: '#00FF00',
-          pointBorderColor: '#0d0d0d',
-          pointHoverBackgroundColor: '#0d0d0d',
-          pointHoverBorderColor: '#00FF00'
-        }]
-      },
-      options: {
-        scales: {
-          r: {
-            angleLines: { color: '#00FF00' },
-            grid: { color: '#00FF00' },
-            pointLabels: { color: '#00FF00' }
-          }
-        },
-        plugins: {
-          legend: { labels: { color: '#00FF00' } }
-        }
-      }
-    },
-    {
-      id: 'chart6',
-      type: 'polarArea',
-      data: {
-        labels: ['Asia', 'Europe', 'America'],
-        datasets: [{
-          label: 'Global Impact',
-          data: [40, 35, 25],
-          backgroundColor: ['#2ecc71', '#e74c3c', '#3498db'],
-          borderColor: '#0d0d0d',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        plugins: {
-          legend: { labels: { color: '#00FF00' } }
-        }
-      }
+/* General body styling */
+body {
+    background-color: #121212;
+    font-family: 'Courier New', Courier, monospace;
+    color: #33FF00; /* Neon green color for text */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container for centering content */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header section */
+header {
+    background-color: #1e1e1e;
+    padding: 40px 0;
+    text-align: center;
+    color: #33FF00;
+    box-shadow: 0 2px 10px rgba(0, 255, 0, 0.6);
+}
+
+/* Hero section */
+#hero {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#hero img {
+    width: 200px;
+    height: auto;
+    margin: 0 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+/* About section */
+#about {
+    background-color: #1c1c1c;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+}
+
+#about h2 {
+    color: #33FF00;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+#about p {
+    color: #fff;
+    font-size: 16px;
+}
+
+/* Visualization section */
+#visualization {
+    background-color: #1c1c1c;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+}
+
+#visualization h2 {
+    color: #33FF00;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.charts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+canvas {
+    margin: 10px 0;
+}
+
+/* Rubber Ducky section */
+#rubber-ducky {
+    padding: 30px;
+    background-color: #121212;
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+#rubber-ducky h2 {
+    color: #33FF00;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Features section */
+#features {
+    background-color: #1c1c1c;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+}
+
+#features h2 {
+    color: #33FF00;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+#features ul {
+    list-style: none;
+    color: #fff;
+    padding-left: 20px;
+}
+
+#features ul li {
+    font-size: 16px;
+}
+
+/* Benefits section */
+#benefits {
+    background-color: #1c1c1c;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+}
+
+#benefits h2 {
+    color: #33FF00;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+#benefits p, #benefits ul {
+    color: #fff;
+    font-size: 16px;
+}
+
+/* Contact section */
+#contact-us {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#contact-us button {
+    background-color: #33FF00;
+    border: none;
+    color: black;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    transition: background-color 0.3s ease;
+}
+
+#contact-us button:hover {
+    background-color: #FF00FF;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 1);
+}
+
+/* Footer section */
+footer {
+    background-color: #1e1e1e;
+    padding: 20px;
+    text-align: center;
+    color: #33FF00;
+    box-shadow: 0 -2px 10px rgba(0, 255, 0, 0.6);
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 768px) {
+    #hero img {
+        width: 150px;
     }
-  ];
-  
-  // Function to render charts
-  function renderCharts() {
-    chartsData.forEach(chart => {
-      new Chart(document.getElementById(chart.id), {
-        type: chart.type,
-        data: chart.data,
-        options: chart.options
-      });
-    });
-  }
-  
+
+    .charts {
+        flex-direction: column;
+    }
+
+    canvas {
+        width: 100%;
+        height: 250px;
+    }
+}
