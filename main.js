@@ -64,7 +64,7 @@ function submitMessage() {
 
 // Function to send data to the server for Excel storage
 function saveToExcel(data) {
-    fetch("https://script.google.com/macros/s/AKfycbwxsFa8Uyhy_u3HT0wLBNYc3BHfV4Q6W2zEOkfFNhVWYmNZ5B4jNnuvaXAtEHt6OTI/exec", { // Replace with your backend URL
+    fetch("https://script.google.com/macros/s/AKfycbzc-8nFYB3R1RNCmG5S5MIt01xjShVf0JraG8wJ0dd8CTwnbpZUbiifOUbwNRqah0Y/exec", { // Replace with your backend URL
         method: "POST",
         headers: {
             "Content-Type": "application/json"
