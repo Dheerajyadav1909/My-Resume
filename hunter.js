@@ -165,7 +165,7 @@ const chartsData = [
   // Initialize charts on page load
   window.onload = renderCharts;
 
-emailjs.send("your_service_id", "your_new_template_id", {
+emailjs.send("service_i655qdh", "template_u66ell8", {
     name: name,
     email: email,
     message: message,
